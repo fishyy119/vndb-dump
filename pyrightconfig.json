@@ -1,0 +1,5 @@
+{
+  "typeCheckingMode": "basic",
+  "ignore": [],
+  "reportUnusedImport": "warning"
+}

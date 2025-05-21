@@ -1,0 +1,13 @@
+## License
+
+This repository includes data derived from the [VNDB database](https://vndb.org), which is licensed under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/1.0/). Individual contents are subject to the [Database Contents License (DbCL)](https://opendatacommons.org/licenses/dbcl/1.0/).
+
+Notes:  
+- The `db/wikidata` data is licensed under CC0.  
+- The `db/anime` data is sourced from AniDB and licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), **for non-commercial use only**.  
+- Description fields in `db/vn` and `db/chars` may originate from various online sources and could be subject to different licenses. Please use with caution.
+- **Currently, the `data` folder in this repository does NOT include any of these exception datasets.**
+
+### Code License
+
+All Python scripts in this repository are licensed under the GLWTPL.
