@@ -12,7 +12,7 @@
   * `producers_20250521.csv`：包含所有制作商的原始信息。
   
 * `processed/`：数据清洗与提取后的结果：
-  * `producers_*.json`：将名称为纯假名（允许包含“株式会社”四个汉字）的制作商名称映射为对应的拉丁转写。
+  * `producers_*.json`：将名称为纯假名（允许包含“株式会社”四个汉字、字母、数字、空格等字符）的制作商名称映射为对应的拉丁转写。
     * `producers_katakana.json`：名称为纯片假名，保持原始顺序。
     * `producers_hiragana.json`：名称为纯平假名，保持原始顺序。
     * `producers_kana_mix.json`：名称为片假名和平假名混合，保持原始顺序。

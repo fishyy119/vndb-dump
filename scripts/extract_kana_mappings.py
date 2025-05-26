@@ -4,7 +4,7 @@ extract_kana_mappings.py
 功能：
     该脚本加载 VNDB 导出的 producers.csv 文件，筛选语言为日语（lang=ja）的制作商名称，
     并根据名称中的假名类型（纯片假名、纯平假名、混合假名）进行分类。
-    支持忽略名称中的“株式会社”四个汉字。
+    忽略名称中的“株式会社”四个汉字、英文字母、数字、空格和常见符号。
     最终导出4份 JSON 文件，键为日文名称，值为对应的拉丁字母名称。
 
 输出：
@@ -36,6 +36,9 @@ class NamePattern(Enum):
 def classify_kana(name: str) -> NamePattern:
     # 去除所有“株式会社”字样
     name_filtered = name.replace("株式会社", "")
+
+    # 去除英文字母（半角和全角）、数字（半角和全角）、空格（半角和全角）、常见符号
+    name_filtered = re.sub(r"[a-zA-ZＡ-Ｚａ-ｚ0-9０-９\s　・ー\-\.･]", "", name_filtered)
 
     if katakana_re.fullmatch(name_filtered):
         return NamePattern.KATAKANA
