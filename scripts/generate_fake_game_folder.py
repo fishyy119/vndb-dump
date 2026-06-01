@@ -32,7 +32,8 @@ def sanitize_filename(name: str) -> str:
     """
     Remove characters invalid for most file systems.
     """
-    invalid_chars = '<>:"/\\|?*'
+    # Windows 下文件夹名称不能以点号结尾
+    invalid_chars = '<>:"/\\|?*.'
     for ch in invalid_chars:
         name = name.replace(ch, "_")
     return name.strip()
@@ -89,12 +90,15 @@ def main():
         if pd.isna(title) or not title:
             continue
 
-        folder_name = sanitize_filename(title)
-        game_dir = output_dir / folder_name
-        game_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            folder_name = sanitize_filename(title)
+            game_dir = output_dir / folder_name
+            game_dir.mkdir(parents=True, exist_ok=True)
 
-        fake_exe_path = game_dir / "fake.exe"
-        fake_exe_path.write_text("This is a fake executable file.\n")
+            fake_exe_path = game_dir / "fake.exe"
+            fake_exe_path.write_text("This is a fake executable file.\n")
+        except Exception as e:
+            print(f"Error creating folder for '{title}': {e}")
 
     print(f"Generated {len(df_sampled)} fake game folders in: {output_dir}")
 
