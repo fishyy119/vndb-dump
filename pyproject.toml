@@ -1,0 +1,35 @@
+[project]
+name = "vndb-dump"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[dependency-groups]
+all = ["pandas"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+reportUnusedImport = "warning"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle（原 flake8）
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",
+    "RUF",
+    "SIM",
+    "C4",
+    "TC",
+]
+
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
