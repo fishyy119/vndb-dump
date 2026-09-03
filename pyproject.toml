@@ -4,11 +4,11 @@ version = "0.1.0"
 requires-python = ">=3.12"
 
 [dependency-groups]
-all = ["pandas"]
+all = ["matplotlib", "numpy", "pandas", "rapidfuzz", "tqdm"]
 
 [tool.pyright]
 pythonVersion = "3.12"
-typeCheckingMode = "standard"
+typeCheckingMode = "basic"
 reportUnusedImport = "warning"
 
 [tool.ruff]
